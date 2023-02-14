@@ -1,27 +1,35 @@
 <script>
+// @ts-nocheck
+
     import linkedingLogo from '$lib/images/linkedin.svg';
+    import quiqueJPG from '$lib/images/enrique.png';
+    import quiqueAVIF from '$lib/images/enrique.avif';
+    import jesusJPG from '$lib/images/jesus.png';
+    import jesusAVIF from '$lib/images/jesus.avif';
+    import pabloJPG from '$lib/images/pablo.png';
+    import pabloAVIF from '$lib/images/pablo.avif';
 
     const equipo = [
         {     
             linkedin: '/src/lib/images/seo-icon-1.svg',
-            imgAvif: '/src/lib/images/enrique.avif',
-            imgpng: '/src/lib/images/enrique.png',
+            imgAvif: {quiqueAVIF},
+            imgpng: {quiqueJPG},
             name:'Enrique Romero',
             puesto: 'Strategic Director',
             description:'Sample text. Click to select the text box. Click again or double click to start editing the text. Excepteur sint occaecat cupidatat non proident.'
         },
         {
             linkedin: '/src/lib/images/seo-icon-2.svg',
-            imgAvif: '/src/lib/images/jesus.avif',
-            imgpng: '/src/lib/images/jesus.png',
+            imgAvif: {jesusAVIF},
+            imgpng: {jesusJPG},
             name:'Jesús Ábalos',
             puesto: 'Head of SEO',
             description:'Sample text. Click to select the text box. Click again or double click to start editing the text. Excepteur sint occaecat cupidatat non proident.'
         },
         {
             linkedin: '/src/lib/images/seo-icon-3.svg',
-            imgAvif: '/src/lib/images/pablo.avif',
-            imgpng: '/src/lib/images/pablo.png',
+            imgAvif: {pabloAVIF},
+            imgpng: {pabloJPG},
             name:'Pablo Agrasot',
             puesto: 'IT & Developer Expert',
             description:'Sample text. Click to select the text box. Click again or double click to start editing the text. Excepteur sint occaecat cupidatat non proident.'

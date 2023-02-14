@@ -1,34 +1,41 @@
 <script>
+// @ts-nocheck
 
+     import icon1 from '$lib/images/seo-icon-1.svg';
+     import icon2 from '$lib/images/seo-icon-2.svg';
+     import icon3 from '$lib/images/seo-icon-3.svg';
+     import icon4 from '$lib/images/seo-icon-4.svg';
+     import icon5 from '$lib/images/seo-icon-5.svg';
+     import icon6 from '$lib/images/seo-icon-6.svg';
     const servicios = [
         {   
             
-            icon: '/src/lib/images/seo-icon-1.svg',
+            icon: {icon1},
             name:'APP DEVELOPMENT',
             description:'Sample text. Click to select the text box. Click again or double click to start editing the text. Excepteur sint occaecat cupidatat non proident.'
         },
         {
-            icon: '/src/lib/images/seo-icon-2.svg',
+            icon: {icon2},
             name:'MOBILITY SERVICES',
             description:'Sample text. Click to select the text box. Click again or double click to start editing the text. Excepteur sint occaecat cupidatat non proident.'
         },
         {
-            icon: '/src/lib/images/seo-icon-3.svg',
+            icon: {icon3},
             name:'CONSULTING',
             description:'Sample text. Click to select the text box. Click again or double click to start editing the text. Excepteur sint occaecat cupidatat non proident.'
         },
         {
-            icon: '/src/lib/images/seo-icon-4.svg',
+            icon: {icon4},
             name:'TEAM EXTENSION',
             description:'Sample text. Click to select the text box. Click again or double click to start editing the text. Excepteur sint occaecat cupidatat non proident.'
         },
         {
-            icon: '/src/lib/images/seo-icon-5.svg',
+            icon: {icon5},
             name:'APPLICATIONS',
             description:'Sample text. Click to select the text box. Click again or double click to start editing the text. Excepteur sint occaecat cupidatat non proident.'
         },
         {
-            icon: '/src/lib/images/seo-icon-6.svg',
+            icon: {icon6},
             name:'24/7 SUPPORT',
             description:'Sample text. Click to select the text box. Click again or double click to start editing the text. Excepteur sint occaecat cupidatat non proident.'
         }
