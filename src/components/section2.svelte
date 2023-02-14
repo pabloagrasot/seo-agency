@@ -10,32 +10,32 @@
     const servicios = [
         {   
             
-            icon: {icon1},
+            icon: icon1,
             name:'APP DEVELOPMENT',
             description:'Sample text. Click to select the text box. Click again or double click to start editing the text. Excepteur sint occaecat cupidatat non proident.'
         },
         {
-            icon: {icon2},
+            icon: icon2,
             name:'MOBILITY SERVICES',
             description:'Sample text. Click to select the text box. Click again or double click to start editing the text. Excepteur sint occaecat cupidatat non proident.'
         },
         {
-            icon: {icon3},
+            icon: icon3,
             name:'CONSULTING',
             description:'Sample text. Click to select the text box. Click again or double click to start editing the text. Excepteur sint occaecat cupidatat non proident.'
         },
         {
-            icon: {icon4},
+            icon: icon4,
             name:'TEAM EXTENSION',
             description:'Sample text. Click to select the text box. Click again or double click to start editing the text. Excepteur sint occaecat cupidatat non proident.'
         },
         {
-            icon: {icon5},
+            icon: icon5,
             name:'APPLICATIONS',
             description:'Sample text. Click to select the text box. Click again or double click to start editing the text. Excepteur sint occaecat cupidatat non proident.'
         },
         {
-            icon: {icon6},
+            icon: icon6,
             name:'24/7 SUPPORT',
             description:'Sample text. Click to select the text box. Click again or double click to start editing the text. Excepteur sint occaecat cupidatat non proident.'
         }

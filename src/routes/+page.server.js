@@ -25,28 +25,28 @@ export const load = () => {
 
 
 
- const transporter = nodemailer.createTransport({
-   host: 'smtp.ionos.es',
-   port: 587,
-   secure: true,
-   auth: {
-       user: 'info@seo-agency.es',
-       pass: MAIL_PASS
-   }
+const transporter = nodemailer.createTransport({
+  host: 'smtp.ionos.es',
+  port: 587,
+  secure: true,
+  auth: {
+      user: 'info@seo-agency.es',
+      pass: MAIL_PASS
+  }
 });
 
 
 
 //Cuerpo email
 const options = {
-   from: 'info@seo-agency.es',
-   to: 'pablobalon@hotmail.com',
-   subject: 'SEO AGENCY LEAD',
-   html: `
-   <h2>${mailInfo.empresa}</h3>
-   <p>Correo:${mailInfo.mail}</p>
-   <p>Interesado:${mailInfo.nombre}</p>
-   <p>Dura:${mailInfo.duda}</p>`
+  from: 'info@seo-agency.es',
+  to: 'pablobalon@hotmail.com',
+  subject: 'SEO AGENCY LEAD',
+  html: `
+  <h2>${mailInfo.empresa}</h3>
+  <p>Correo:${mailInfo.mail}</p>
+  <p>Interesado:${mailInfo.nombre}</p>
+  <p>Dura:${mailInfo.duda}</p>`
 }
 
 //Obtenemos valores del formulario y validamos errores
@@ -77,7 +77,10 @@ default: async ( {request}) => {
       }
 
       Object.assign(mailInfo, info)
-      transporter.sendMail(options);
+      transporter.sendMail(options, (err, info) => {
+        console.log(info.envelope);
+        console.log(info.messageId);
+    });
       return { success: true}   
   }
 }
