@@ -42,7 +42,7 @@ const TAGS = [
 	$: blobTextPositionX = outerWidth < 840 ? "80" : "200";
 	$: blobTextPositionY = outerWidth < 840 ? "200" : "0";
 	$: textRotate = outerWidth > 840 ? "rotate(38)" : "rotate(0)";
-	
+	$: bk =  wave
 
 	
 </script>
@@ -62,7 +62,7 @@ const TAGS = [
 		<a href="/">Contacta con nosotros</a>
 
 	</div>
-	<div class="image_hero" style="--image: url({wave});">
+	<div class="image_hero">
 		<svg class="blob"
 			version="1.1"
 			xmlns="http://www.w3.org/2000/svg"
@@ -117,7 +117,7 @@ const TAGS = [
 		content: "";
    		left: 0;
 		top:0;
-   		background-image: var(--image);
+   		background-image: url(./Wave.svg);
    		background-size: 100%;
    		background-repeat: no-repeat;
    		background-position: bottom;
