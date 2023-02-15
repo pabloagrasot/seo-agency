@@ -116,7 +116,7 @@ const TAGS = [
 		content: "";
    		left: 0;
 		top:0;
-   		background-image: url(/lib/images/Wave.svg);
+   		background-image: url($lib/images/wave.svg);
    		background-size: 100%;
    		background-repeat: no-repeat;
    		background-position: bottom;
