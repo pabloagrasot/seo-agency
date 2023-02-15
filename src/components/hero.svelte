@@ -114,7 +114,7 @@ const TAGS = [
 		content: "";
    		left: 0;
 		top:0;
-   		background-image: url(%sveltekit.assets%/wave.svg);
+   		background-image: url(/wave.svg);
    		background-size: 100%;
    		background-repeat: no-repeat;
    		background-position: bottom;
