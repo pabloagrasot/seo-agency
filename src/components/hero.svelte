@@ -42,6 +42,8 @@ const TAGS = [
 	$: blobTextPositionX = outerWidth < 840 ? "80" : "200";
 	$: blobTextPositionY = outerWidth < 840 ? "200" : "0";
 	$: textRotate = outerWidth > 840 ? "rotate(38)" : "rotate(0)";
+	$: background = wave
+	
 
 	
 </script>
@@ -116,7 +118,7 @@ const TAGS = [
 		content: "";
    		left: 0;
 		top:0;
-   		background-image: url($lib/images/wave.svg);
+   		background-image: url({background});
    		background-size: 100%;
    		background-repeat: no-repeat;
    		background-position: bottom;
