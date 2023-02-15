@@ -1,5 +1,5 @@
 <script>
-	
+	import wave from '$lib/images/wave.svg';
 
 const TAGS = [
 		'Keywords',
@@ -116,7 +116,7 @@ const TAGS = [
 		content: "";
    		left: 0;
 		top:0;
-   		background-image: url(/src/lib/images/wave.svg);
+   		background-image: url(wave);
    		background-size: 100%;
    		background-repeat: no-repeat;
    		background-position: bottom;
