@@ -1,6 +1,4 @@
 <script>
-	import wave from '$lib/images/wave.svg';
-
 const TAGS = [
 		'Keywords',
 		'Estrategia',
@@ -42,7 +40,6 @@ const TAGS = [
 	$: blobTextPositionX = outerWidth < 840 ? "80" : "200";
 	$: blobTextPositionY = outerWidth < 840 ? "200" : "0";
 	$: textRotate = outerWidth > 840 ? "rotate(38)" : "rotate(0)";
-	$: bk =  wave
 
 	
 </script>
@@ -117,7 +114,7 @@ const TAGS = [
 		content: "";
    		left: 0;
 		top:0;
-   		background-image: url(./Wave.svg);
+   		background-image: url(%sveltekit.assets%/wave.svg);
    		background-size: 100%;
    		background-repeat: no-repeat;
    		background-position: bottom;
