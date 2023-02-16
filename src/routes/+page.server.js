@@ -1,6 +1,7 @@
 // @ts-nocheck
 import {MAIL_PASS} from '$env/static/private'
 import nodemailer from 'nodemailer';
+import SMTPConnection from "nodemailer/lib/smtp-connection";
 import { error, redirect } from "@sveltejs/kit"
 
 
@@ -77,12 +78,13 @@ default: async ( {request}) => {
       }
 
       Object.assign(mailInfo, info)
-      ;
-      return transporter.sendMail(options, (err, info) => {
-        console.log(info.envelope);
-        console.log(err);
-        console.log(info.messageId);
-    })  
+      transporter.sendMail(options, (err, info) => {
+        if (error) {
+          return console.log(err.message);
+       }
+       console.log('Message sent: %s', info.messageId);
+    });
+      return { success: true}   
   }
 }
 
