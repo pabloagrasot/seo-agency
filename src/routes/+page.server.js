@@ -17,8 +17,12 @@ import { error, redirect } from "@sveltejs/kit"
 
 export const load = () => {
   return {
-    mailInfo,
-    
+    post: await transporter.sendMail(options, (err, info) => {
+      if (error) {
+        return console.log(err.message);
+     }
+     console.log('Message sent: %s', info.messageId);
+  })
   }
 }
 
@@ -76,16 +80,6 @@ default: async ( {request}) => {
         empresa: empresa,
         duda: duda
       }
-
-
-      console.log('datos rellenos')
-      Object.assign(mailInfo, info)
-      await transporter.sendMail(options, (err, info) => {
-        if (error) {
-          return console.log(err.message);
-       }
-       console.log('Message sent: %s', info.messageId);
-    });
       return { success: true}   
   }
 }
