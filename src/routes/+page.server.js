@@ -1,11 +1,10 @@
 // @ts-nocheck
 import {MAIL_PASS} from '$env/static/private'
 import nodemailer from 'nodemailer';
-import SMTPConnection from "nodemailer/lib/smtp-connection";
 import { error, redirect } from "@sveltejs/kit"
 
 
-
+let pass = process.env.MAIL_PASS
 
  let mailInfo = {
   mail: '',
@@ -18,7 +17,7 @@ import { error, redirect } from "@sveltejs/kit"
 export const load = () => {
   return {
     mailInfo,
-    deploymentGitBranch: MAIL_PASS
+    pass
   }
 }
 
@@ -32,7 +31,7 @@ const transporter = nodemailer.createTransport({
   secure: true,
   auth: {
       user: 'info@seo-agency.es',
-      pass: MAIL_PASS
+      pass: process.env.MAIL_PASS
   }
 });
 
