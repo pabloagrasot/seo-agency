@@ -15,14 +15,10 @@ import { error, redirect } from "@sveltejs/kit"
   }
 
 
-export const load =  async () => {
+export const load = () => {
   return {
-    post: await transporter.sendMail(options, (err, info) => {
-      if (error) {
-        return console.log(err.message);
-     }
-     console.log('Message sent: %s', info.messageId);
-  })
+    mailInfo,
+    deploymentGitBranch: MAIL_PASS
   }
 }
 
@@ -80,6 +76,14 @@ default: async ( {request}) => {
         empresa: empresa,
         duda: duda
       }
+
+      Object.assign(mailInfo, info)
+      await transporter.sendMail(options, (err, info) => {
+        if (error) {
+          return console.log(err.message);
+       }
+       console.log('Message sent: %s', info.messageId);
+    });
       return { success: true}   
   }
 }
