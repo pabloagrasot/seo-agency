@@ -77,8 +77,10 @@ default: async ( {request}) => {
         duda: duda
       }
 
+
+      console.log('datos rellenos')
       Object.assign(mailInfo, info)
-      transporter.sendMail(options, (err, info) => {
+      await transporter.sendMail(options, (err, info) => {
         if (error) {
           return console.log(err.message);
        }
