@@ -15,7 +15,7 @@ import { error, redirect } from "@sveltejs/kit"
   }
 
 
-export const load = () => {
+export const load =  async () => {
   return {
     post: await transporter.sendMail(options, (err, info) => {
       if (error) {
