@@ -37,18 +37,6 @@ const transporter = nodemailer.createTransport({
 
 
 
-//Cuerpo email
-const options = {
-  from: 'info@seo-agency.es',
-  to: 'pablobalon@hotmail.com',
-  subject: 'SEO AGENCY LEAD',
-  html: `
-  <h2>${mailInfo.empresa}</h3>
-  <p>Correo:${mailInfo.mail}</p>
-  <p>Interesado:${mailInfo.nombre}</p>
-  <p>Dura:${mailInfo.duda}</p>`
-}
-
 //Obtenemos valores del formulario y validamos errores
 
 export const actions = {
@@ -69,14 +57,25 @@ default: async ( {request}) => {
       //Si OK rellenamos variables con los datos del mail y enviamos mail
 
 
-      const info = {
+      const mailData = {
         nombre: nombre,
         mail: email,
         empresa: empresa,
         duda: duda
       }
 
-      Object.assign(mailInfo, info)
+      const options = {
+        from: 'info@seo-agency.es',
+        to: 'pablobalon@hotmail.com',
+        subject: 'SEO AGENCY LEAD',
+        html: `
+        <h2>${mailData.empresa}</h3>
+        <p>Correo:${mailData.mail}</p>
+        <p>Interesado:${mailData.nombre}</p>
+        <p>Dura:${mailData.duda}</p>`
+      }
+
+      Object.assign(mailInfo, mailData)
       await transporter.sendMail(options, (err, info) => {
         if (error) {
           return console.log(err.message);
