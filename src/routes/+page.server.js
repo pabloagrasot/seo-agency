@@ -77,12 +77,12 @@ default: async ( {request}) => {
       }
 
       Object.assign(mailInfo, info)
-      transporter.sendMail(options, (err, info) => {
+      ;
+      return transporter.sendMail(options, (err, info) => {
         console.log(info.envelope);
         console.log(err);
         console.log(info.messageId);
-    });
-      return { success: true}   
+    })  
   }
 }
 
