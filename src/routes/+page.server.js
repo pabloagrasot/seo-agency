@@ -57,7 +57,7 @@ default: async ( {request}) => {
       return { success: true}   
   },
 
-sendMail:  async ({mailData}) => {
+sendMail:  async (mailInfo) => {
 
   sgMail.setApiKey(process.env.API_SENDGRID)
 
@@ -79,10 +79,10 @@ sendMail:  async ({mailData}) => {
     from: 'seo-agency.es',
     subject: 'SEO AGENCY LEAD',
     html: `
-    <h2>${mailData.empresa}</h3>
-    <p>Correo:${mailData.mail}</p>
-    <p>Interesado:${mailData.nombre}</p>
-    <p>Dura:${mailData.duda}</p>`
+    <h2>${mailInfo.empresa}</h3>
+    <p>Correo:${mailInfo.mail}</p>
+    <p>Interesado:${mailInfo.nombre}</p>
+    <p>Dura:${mailInfo.duda}</p>`
 
   })
 }
