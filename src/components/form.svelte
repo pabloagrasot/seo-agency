@@ -8,7 +8,7 @@
      
 </script>
 
-<form method="POST">
+<form method="POST" action="/sendMail">
 <input class="input"
 type="text"
 name="nombre"

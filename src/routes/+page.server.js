@@ -26,6 +26,7 @@ export const load = () => {
 export const actions = {
 
 default: async ( {request}) => {
+  
     const data = await request.formData();
     const email = data.get('email');
     const nombre = data.get('nombre');
@@ -48,50 +49,44 @@ default: async ( {request}) => {
         duda: duda
       }
 
-      const options = {
-        from: 'info@seo-agency.es',
-        to: 'pablobalon@hotmail.com',
-        subject: 'SEO AGENCY LEAD',
-        html: `
-        <h2>${mailData.empresa}</h3>
-        <p>Correo:${mailData.mail}</p>
-        <p>Interesado:${mailData.nombre}</p>
-        <p>Dura:${mailData.duda}</p>`
-      }
 
       Object.assign(mailInfo, mailData)
 
-        sgMail.setApiKey(process.env.API_SENDGRID)
-
-        const sendMail = async (msg) => {
-          try {
-            await sgMail.send(msg)
-            console.log('mensaje enviado')
-          }
-          catch (error){
-            console.log(error)
-            if(error.response){
-              console.error(error.response.body)
-            }
-          }
-        }
         
 
+      return { success: true}   
+  },
 
+sendMail:  async ({mailData}) => {
 
+  sgMail.setApiKey(process.env.API_SENDGRID)
 
-      return      sendMail({
-        to:'info@seo-agency.es',
-        from: 'seo-agency.es',
-        subject: 'SEO AGENCY LEAD',
-        html: `
-        <h2>${mailData.empresa}</h3>
-        <p>Correo:${mailData.mail}</p>
-        <p>Interesado:${mailData.nombre}</p>
-        <p>Dura:${mailData.duda}</p>`
-
-      })   
+  const sendMail = async (msg) => {
+    try {
+      await sgMail.send(msg)
+      console.log('mensaje enviado')
+    }
+    catch (error){
+      console.log(error)
+      if(error.response){
+        console.error(error.response.body)
+      }
+    }
   }
+  
+  sendMail({
+    to:'info@seo-agency.es',
+    from: 'seo-agency.es',
+    subject: 'SEO AGENCY LEAD',
+    html: `
+    <h2>${mailData.empresa}</h3>
+    <p>Correo:${mailData.mail}</p>
+    <p>Interesado:${mailData.nombre}</p>
+    <p>Dura:${mailData.duda}</p>`
+
+  })
+}
+
 }
 
 
