@@ -56,34 +56,35 @@ default: async ( {request}) => {
       return { success: true}   
   },
 
-sendMail:  async () => {
+sendMail:  async (event) => {
 
-  sgMail.setApiKey(process.env.API_SENDGRID)
-
-  const sendMail = async (msg) => {
-    try {
-      await sgMail.send(msg)
-      console.log('mensaje enviado')
-    }
-    catch (error){
-      console.log(error)
-      if(error.response){
-        console.error(error.response.body)
-      }
-    }
-  }
-  
-  sendMail({
-    to:'info@seo-agency.es',
-    from: 'seo-agency.es',
-    subject: 'SEO AGENCY LEAD',
-    html: `
-    <h2>${mailInfo.empresa}</h3>
-    <p>Correo:${mailInfo.mail}</p>
-    <p>Interesado:${mailInfo.nombre}</p>
-    <p>Dura:${mailData.duda}</p>`
-
-  })
+// sgMail.setApiKey(process.env.API_SENDGRID)
+//
+// const sendMail = async (msg) => {
+//   try {
+//     await sgMail.send(msg)
+//     console.log('mensaje enviado')
+//   }
+//   catch (error){
+//     console.log(error)
+//     if(error.response){
+//       console.error(error.response.body)
+//     }
+//   }
+// }
+// 
+// sendMail({
+//   to:'info@seo-agency.es',
+//   from: 'seo-agency.es',
+//   subject: 'SEO AGENCY LEAD',
+//   html: `
+//   <h2>${mailInfo.empresa}</h3>
+//   <p>Correo:${mailInfo.mail}</p>
+//   <p>Interesado:${mailInfo.nombre}</p>
+//   <p>Dura:${mailData.duda}</p>`
+//
+// })
+return {todo: ok}
 }
 
 }
