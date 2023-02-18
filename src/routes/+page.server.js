@@ -4,19 +4,18 @@ import	sgMail from '@sendgrid/mail'
 
 
 let pass = process.env.MAIL_PASS
+let api = process.env.API_SENDGRID
 
  let mailInfo = {
-  mail: '',
-  nombre: '', 
-  empresa: '',
-  duda: ''    
+  
   }
 
 
 export const load = () => {
   return {
     mailInfo,
-    pass
+    pass,
+    api
   }
 }
 
@@ -57,7 +56,7 @@ default: async ( {request}) => {
       return { success: true}   
   },
 
-sendMail:  async (mailInfo) => {
+sendMail:  async () => {
 
   sgMail.setApiKey(process.env.API_SENDGRID)
 
@@ -82,7 +81,7 @@ sendMail:  async (mailInfo) => {
     <h2>${mailInfo.empresa}</h3>
     <p>Correo:${mailInfo.mail}</p>
     <p>Interesado:${mailInfo.nombre}</p>
-    <p>Dura:${mailInfo.duda}</p>`
+    <p>Dura:${mailData.duda}</p>`
 
   })
 }
