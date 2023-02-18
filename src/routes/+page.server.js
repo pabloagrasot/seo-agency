@@ -77,20 +77,20 @@ default: async ( {request}) => {
         }
         
 
-        sendMail({
-          to:'info@seo-agency.es',
-          from: 'seo-agency.es',
-          subject: 'SEO AGENCY LEAD',
-          html: `
-          <h2>${mailData.empresa}</h3>
-          <p>Correo:${mailData.mail}</p>
-          <p>Interesado:${mailData.nombre}</p>
-          <p>Dura:${mailData.duda}</p>`
-
-        })
 
 
-      return { success: true}   
+
+      return      sendMail({
+        to:'info@seo-agency.es',
+        from: 'seo-agency.es',
+        subject: 'SEO AGENCY LEAD',
+        html: `
+        <h2>${mailData.empresa}</h3>
+        <p>Correo:${mailData.mail}</p>
+        <p>Interesado:${mailData.nombre}</p>
+        <p>Dura:${mailData.duda}</p>`
+
+      })   
   }
 }
 
