@@ -1,7 +1,6 @@
 // @ts-nocheck
-import {MAIL_PASS} from '$env/static/private'
-import nodemailer from 'nodemailer';
 import { error, redirect } from "@sveltejs/kit"
+import	sgMail from '@sendgrid/mail'
 
 
 let pass = process.env.MAIL_PASS
@@ -20,21 +19,6 @@ export const load = () => {
     pass
   }
 }
-
-//Configruacion email
-
-
-
-const transporter = nodemailer.createTransport({
-  host: 'smtp.ionos.es',
-  port: 587,
-  secure: true,
-  auth: {
-      user: 'info@seo-agency.es',
-      pass: process.env.MAIL_PASS
-  }
-});
-
 
 
 //Obtenemos valores del formulario y validamos errores
@@ -76,12 +60,36 @@ default: async ( {request}) => {
       }
 
       Object.assign(mailInfo, mailData)
-      await transporter.sendMail(options, (err, info) => {
-        if (error) {
-          return console.log(err.message);
-       }
-       console.log('Message sent: %s', info.messageId);
-    });
+
+        sgMail.setApiKey(process.env.API_SENDGRID)
+
+        const sendMail = async (msg) => {
+          try {
+            await sgMail.send(msg)
+            console.log('mensaje enviado')
+          }
+          catch (error){
+            console.log(error)
+            if(error.response){
+              console.error(error.response.body)
+            }
+          }
+        }
+        
+
+        sendMail({
+          to:'info@seo-agency.es',
+          from: 'seo-agency.es',
+          subject: 'SEO AGENCY LEAD',
+          html: `
+          <h2>${mailData.empresa}</h3>
+          <p>Correo:${mailData.mail}</p>
+          <p>Interesado:${mailData.nombre}</p>
+          <p>Dura:${mailData.duda}</p>`
+
+        })
+
+
       return { success: true}   
   }
 }
